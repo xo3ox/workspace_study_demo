@@ -20,6 +20,6 @@ func main(){
 		log.Warning("这是一条Waring级别的日志")
 		log.Fatal("这是一条Fatal级别的日志")
 		log.Error("这是一条Error级别的日志")
-		// time.Sleep(1*time.Second)
+		//time.Sleep(1*time.Second)
 	}
 }
