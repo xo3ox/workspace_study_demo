@@ -6,6 +6,8 @@
 2. goroutine简单的生产消费者demo
 3. go test demo
 4. NSQ分布式消息队列的生产消费者demo
+5. Session中间件开发
+   通用的Session服务，支持内存存储和redis存储
 
 -------------------
 1. 日志库
