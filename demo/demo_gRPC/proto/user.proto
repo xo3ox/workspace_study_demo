@@ -1,0 +1,30 @@
+// 版本号
+syntax = "proto3";
+
+// 指定包名
+package proto;
+
+option go_package ="/";
+
+// message 定义结构体
+// 用户请求结构体
+message UserRequest{
+  // 用户名
+  string name = 1;
+}
+// 用户响应结构体
+message UserResponse{
+  int32 id = 1;
+  string name = 2;
+  int32 age = 3;
+  // repeated 修饰符是可变数组，go语言中转成切片
+  repeated string hobby = 4;
+}
+
+// service 定义方法
+service UserInfoService{
+  rpc GetUserInfo(UserRequest) returns (UserResponse){
+  }
+}
+
+
