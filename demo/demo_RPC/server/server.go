@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"net"
 	"net/rpc"
+	"net/rpc/jsonrpc"
 )
 
 // 定义类对象
@@ -47,5 +48,6 @@ func main(){
 	fmt.Println("----------连接建立成功------------")
 
 	// 4 绑定服务
-	rpc.ServeConn(conn)
+	//rpc.ServeConn(conn)
+	jsonrpc.ServeConn(conn)	// 防止网络传输乱码问题
 }
