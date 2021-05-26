@@ -1,15 +1,15 @@
 package main
 
 import (
+	"demo_RPC/design"
 	"fmt"
 	"net"
-	"net/rpc"
 	"net/rpc/jsonrpc"
+
 )
 
 // 定义类对象
 type World struct {
-
 }
 
 // 绑定类方法
@@ -19,15 +19,17 @@ func (w *World) HelloWorld(name string , resp *string) error{
 }
 
 func main(){
-	// 1 注册RPC服务，绑定对象方法
-	err := rpc.RegisterName("hello", new(World))
-	if err != nil{
-		fmt.Println("注册RPC服务失败：",err)
-		return
-	}
+	//// 1 注册RPC服务，绑定对象方法
+	//err := rpc.RegisterName("hello", new(World))
+	//if err != nil{
+	//	fmt.Println("注册RPC服务失败：",err)
+	//	return
+	//}
+	design.RegisterService(new(World))
+
 	// 2 设置监听
-	var listener net.Listener
-	listener , err = net.Listen("tcp","127.0.0.1:8080")
+	//var listener net.Listener
+	listener , err := net.Listen("tcp","127.0.0.1:8080")
 	if err != nil {
 		fmt.Println("net.Listen 错误：",err)
 		return
